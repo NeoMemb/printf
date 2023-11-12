@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <stdio.h>
+#include <unistd.h>
 
 /**
  * printChar - helper helper that prints chars
@@ -63,11 +64,9 @@ int printDigit(long N, int baseNUMB)
  */
 int format_print(char spec, va_list str)
 {
-	int i, DECIMAL, HEX;
+	int i;
 
 	i = 0;
-	HEX = 16;
-	DECIMAL = 10;
 	if (spec == 'c')
 	{
 		i += printChar(va_arg(str, int));
@@ -78,11 +77,11 @@ int format_print(char spec, va_list str)
 	}
 	else if (spec == 'd' || spec == 'i')
 	{
-		i += printDigit(long va_arg(str, unsigned int), DECIMAL);
+		i += printDigit((long) va_arg(str, unsigned int), 10);
 	}
 	else if (spec == 'x')
 	{
-		i += printDigit(long va_arg(str, unsigned int), HEX);
+		i += printDigit((long) va_arg(str, unsigned int), 16);
 	}
 	else
 	{
@@ -113,7 +112,7 @@ int _printf(const char *format, ...)
 	int numb;
 
 	numb = 0;
-	va_list(str);
+	va_list str;
 	va_start(str, format);
 	while (*format != '\0')
 	{
@@ -128,4 +127,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(str);
+	return (numb);
 }
