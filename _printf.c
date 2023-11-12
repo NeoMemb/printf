@@ -109,10 +109,10 @@ int format_print(char spec, va_list str)
  */
 int _printf(const char *format, ...)
 {
+	va_list str;
 	int numb;
 
 	numb = 0;
-	va_list str;
 	va_start(str, format);
 	while (*format != '\0')
 	{
