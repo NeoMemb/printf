@@ -31,11 +31,12 @@ int printDigit(long N, int baseNumb)
 	}
 	else if (baseNumb > N)
 		return (printChar(symbols[N]));
-	else if
+	else if (baseNumb < N)
 	{
-		count = (printDigit(N / baseNumb, baseNumb));
+		count = printDigit(N / baseNumb, baseNumb);
 		return (count + printDigit(N % baseNumb, baseNumb));
 	}
+	return (0);
 }
 /**
  * printStr - another helper func that prints string
