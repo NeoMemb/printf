@@ -5,14 +5,19 @@
 
 /**
  * printChar - helper helper that prints chars
- * @chars: the char to be printed
- * Return the char to be printed
+ * @c: the char to be printed
+ * Return: the char to be printed
  */
-int printChar(int c) 
+int printChar(int c)
 {
-	return write(1, &c, 1);
+	return (write(1, &c, 1));
 }
-
+/**
+ * printDigit - print digits either hex or decimal/
+ * @N: long data type and the index for string chars
+ * @baseNumb: number base
+ * Return: count
+ */
 int printDigit(long N, int baseNumb)
 {
 	int count;
@@ -24,31 +29,37 @@ int printDigit(long N, int baseNumb)
 		write(1, "-", 1);
 		return (printDigit(-N, baseNumb) + 1);
 	}
-	else if (N < baseNumb)
+	else if (baseNumb > N)
 		return (printChar(symbols[N]));
-	else
+	else if
 	{
 		count = (printDigit(N / baseNumb, baseNumb));
 		return (count + printDigit(N % baseNumb, baseNumb));
 	}
 }
-
+/**
+ * printStr - another helper func that prints string
+ * @s: pointer to char(A.K.A string) to be printed
+ * Return: count
+ */
 int printStr(char *s)
 {
 	int count;
 
-	/*count = 0;*/
-	/**while (*s)
-	{
-		count += write(1, s++, 1);
-	}*/
-	for (count = 0; s[count] != '\0'; count++)
+	count = 0;
+	while (*s)
 	{
 		count += write(1, s++, 1);
 	}
 	return (count);
-}	
-
+}
+/**
+ * format_print - Creating a function that uses helper funct
+ * -ion to handle s, c, d or i and x
+ * @spec: char immediately after '%'
+ * @ap: the ellipses -> format specifier variables
+ * Return: int i
+ */
 int format_print(char spec, va_list ap)
 {
 	int count;
@@ -77,8 +88,14 @@ int format_print(char spec, va_list ap)
 	return (count);
 }
 
-
-int	_printf(const char *format, ...)
+/**
+ * _printf - functioning as printf
+ * @format: pointer the char(string)
+ * which is to be printed
+ *
+ * Return: count
+ */
+int _printf(const char *format, ...)
 {
 	va_list	ap;
 	int count;
