@@ -22,7 +22,11 @@ int _printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			count += format_print(*(format + 1), ap);
+			count += format_print(*(++format), ap);
+		}
+		else if (format == NULL)
+		{
+			return (-1);
 		}
 		else
 		{

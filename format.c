@@ -33,6 +33,10 @@ int format_print(char spec, va_list ap)
 	{
 		count = printChar(va_arg(ap, int));
 	}
+	else if (!spec)
+	{
+		count = -1;
+	}
 	else
 	{
 		count += write(1, &spec, 1);
