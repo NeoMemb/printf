@@ -42,13 +42,13 @@ int format_print(char spec, va_list ap)
 	{
 		count = printDigit((unsigned int)va_arg(ap, unsigned int), 10);
 	}
-	else if (!spec)
+	else if (spec)
 	{
-		count = -1;
+		count += printChar('%') + write(1,&spec, 1);
 	}
 	else
 	{
-		count += write(1, &spec, 1);
+		count = -1;
 	}
 	return (count);
 }

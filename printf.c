@@ -26,9 +26,13 @@ int _printf(const char *format, ...)
 		 *	return (-1);
 		 * }
 		 */
+		else if (*(format) && *(format + 1))
+		{
+			count += write(1, format, 1);
+		}
 		else
 		{
-			count += write(STDOUT_FILENO, format, 1);
+			count += write(1, format, 1);
 		}
 		++format;
 	}
