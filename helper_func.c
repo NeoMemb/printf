@@ -91,21 +91,22 @@ int printOct(long N, int baseNumb)
 	int count;
 	char *symbols;
 
-	symbols = "012345678";
-	if (N < 0)
-	{
+	symbols = "01234567";
+	/**
+	 * if (N < 0)
+	 * {
 		write(1, "-", 1);
 		return (printOct(-N, baseNumb) + 1);
 	}
-	else if (baseNumb > N)
+	*/
+	if (baseNumb > N)
 	{
 		return (printChar(symbols[N]));
 	}
-	else if (baseNumb < N)
+	else
 	{
 		count = printOct(N / baseNumb, baseNumb);
 		return (count + printOct(N % baseNumb, baseNumb));
 	}
-	return (0);
 }
 

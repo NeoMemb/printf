@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 	count = 0;
 	while (*format != '\0')
 	{
-		if (*format == '%')
+		if ((*(format) == '%') && (*(format) + 1))
 		{
 			count += format_print(*(++format), ap);
 		}
