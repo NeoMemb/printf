@@ -1,5 +1,3 @@
-#include <stdarg.h>
-#include <unistd.h>
 #include "main.h"
 /**
  * format_print - Creating a function that uses helper funct
@@ -41,6 +39,10 @@ int format_print(char spec, va_list ap)
 	else if (spec == 'u')
 	{
 		count = printDigit((unsigned int)va_arg(ap, unsigned int), 10);
+	}
+	else if (spec == 'X')
+	{
+		count = printHex((unsigned int)va_arg(ap, unsigned int), 16);
 	}
 	else if (spec)
 	{

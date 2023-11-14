@@ -15,6 +15,27 @@ int printChar(int c)
  * @baseNumb: number base
  * Return: count
  */
+int printHex(long N, int baseNumb)
+{
+	int count;
+	char *symbols;
+
+	symbols = "0123456789ABCDEF";
+	if (N < 0)
+	{
+		write(1, "-", 1);
+		return (printHex(-N, baseNumb) + 1);
+	}
+	else if (baseNumb > N)
+		return (printChar(symbols[N]));
+	else if (baseNumb < N)
+	{
+		count = printHex(N / baseNumb, baseNumb);
+		return (count + printHex(N % baseNumb, baseNumb));
+	}
+	return (0);
+}
+
 int printDigit(long N, int baseNumb)
 {
 	int count;
