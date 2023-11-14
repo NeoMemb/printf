@@ -6,7 +6,7 @@
  * -ion to handle s, c, d or i and x
  * @spec: char immediately after '%'
  * @ap: the ellipses -> format specifier variables
- * Return: int i
+ * Return: int 
  */
 int format_print(char spec, va_list ap)
 {
