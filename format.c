@@ -27,6 +27,8 @@ int format_print(char spec, va_list ap)
 		count = printDigit((unsigned int)va_arg(ap, unsigned int), 10);
 	else if (spec == 'X')
 		count = printHex((unsigned int)va_arg(ap, unsigned int), 16);
+	else if (spec == 'o')
+		count = printOct((unsigned int)va_arg(ap, int), 8);
 	else if (spec)
 		count += printChar('%') + write(1, &spec, 1);
 	else

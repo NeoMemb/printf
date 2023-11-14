@@ -10,4 +10,5 @@ int printDigit(long N, int baseNumb);
 int printChar(int c);
 int format_print(char spec, va_list ap);
 int printHex(long N, int baseNumb);
+int printOct(long N, int baseNumb);
 #endif

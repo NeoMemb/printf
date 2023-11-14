@@ -27,7 +27,9 @@ int printHex(long N, int baseNumb)
 		return (printHex(-N, baseNumb) + 1);
 	}
 	else if (baseNumb > N)
+	{
 		return (printChar(symbols[N]));
+	}
 	else if (baseNumb < N)
 	{
 		count = printHex(N / baseNumb, baseNumb);
@@ -54,7 +56,9 @@ int printDigit(long N, int baseNumb)
 		return (printDigit(-N, baseNumb) + 1);
 	}
 	else if (baseNumb > N)
+	{
 		return (printChar(symbols[N]));
+	}
 	else if (baseNumb < N)
 	{
 		count = printDigit(N / baseNumb, baseNumb);
@@ -73,8 +77,35 @@ int printStr(char *s)
 
 	count = 0;
 	while (*s)
-	{
 		count += write(1, s++, 1);
-	}
 	return (count);
 }
+/**
+ * printOct - printing the Octal number
+ * @N: long data type of the number to be printed
+ * @baseNumb: The base numb to be converted to
+ * Return: count as int
+ */
+int printOct(long N, int baseNumb)
+{
+	int count;
+	char *symbols;
+
+	symbols = "012345678";
+	if (N < 0)
+	{
+		write(1, "-", 1);
+		return (printOct(-N, baseNumb) + 1);
+	}
+	else if (baseNumb > N)
+	{
+		return (printChar(symbols[N]));
+	}
+	else if (baseNumb < N)
+	{
+		count = printOct(N / baseNumb, baseNumb);
+		return (count + printOct(N % baseNumb, baseNumb));
+	}
+	return (0);
+}
+
