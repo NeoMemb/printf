@@ -36,7 +36,7 @@ int format_print(char spec, va_list ap)
 	}
 	else if (spec == '%')
 	{
-		count = printChar(va_arg(ap, int));
+		count = printChar('%');
 	}
 	else if (spec == 'u')
 	{
