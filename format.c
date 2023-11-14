@@ -40,8 +40,7 @@ int format_print(char spec, va_list ap)
 	}
 	else if (spec == 'u')
 	{
-		(unsigned int) count;
-		count = printDigit((long)va_arg(ap, unsigned int), 10);
+		count = printDigit((unsigned int)va_arg(ap, unsigned int), 10);
 	}
 	else if (!spec)
 	{
