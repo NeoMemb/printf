@@ -38,6 +38,11 @@ int format_print(char spec, va_list ap)
 	{
 		count = printChar(va_arg(ap, int));
 	}
+	else if (spec == 'u')
+	{
+		(unsigned int) count;
+		count = printDigit((long)va_arg(ap, unsigned int), 10);
+	}
 	else if (!spec)
 	{
 		count = -1;
