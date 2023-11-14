@@ -42,7 +42,7 @@ int format_print(char spec, va_list ap)
 	}
 	else if (spec == 'X')
 	{
-		count = printHex((unsigned int)va_arg(ap, unsigned int), 16);
+		count = printHex((long)va_arg(ap, unsigned int), 16);
 	}
 	else if (spec)
 	{
