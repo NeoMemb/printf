@@ -1,7 +1,3 @@
-#include <stdarg.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
 #include "main.h"
 
 /**
@@ -24,10 +20,12 @@ int _printf(const char *format, ...)
 		{
 			count += format_print(*(++format), ap);
 		}
-		else if (format == NULL)
-		{
-			return (-1);
-		}
+		/**
+		 * else if (format == NULL)
+		 * {
+		 *	return (-1);
+		 * }
+		 */
 		else
 		{
 			count += write(STDOUT_FILENO, format, 1);

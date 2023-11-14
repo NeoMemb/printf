@@ -25,6 +25,11 @@ int format_print(char spec, va_list ap)
 	{
 		count = printDigit((long)va_arg(ap, int), 10);
 	}
+	else if (spec == 'i')
+	{
+		count = printDigit((long)va_arg(ap, int), 10);
+	}
+
 	else if (spec == 'x')
 	{
 		count = printDigit((long)va_arg(ap, unsigned int), 16);
