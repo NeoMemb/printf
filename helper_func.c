@@ -10,7 +10,7 @@ int printChar(int c)
 	return (write(1, &c, 1));
 }
 /**
- * printDigit - print digits either hex or decimal/
+ * printHex - print digits either hex or decimal/
  * @N: long data type and the index for string chars
  * @baseNumb: number base
  * Return: count
@@ -36,6 +36,12 @@ int printHex(long N, int baseNumb)
 	return (0);
 }
 
+/**
+ * printDigit - print digits either hex or decimal/
+ * @N: long data type and the index for string chars
+ * @baseNumb: number base
+ * Return: count
+ */
 int printDigit(long N, int baseNumb)
 {
 	int count;
